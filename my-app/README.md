@@ -1,8 +1,19 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# Проект "Менеджер контактов полезных людей"
+## React + Vite
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+ Проект представляет собой сервис, в котором пользователь может хранить контакты полезных людей,
+ разбитых по категориям.
+
+## Категории
+ В сайдбаре планировщика должен размещаться список категорий. Пользователь может создавать категории,
+ редактировать и удалять их.
+
+ При нажатию на категорию должна открываться таблица контактов данной категории.
+
+## Таблица
+ Каждая запись в таблице планировщика должна содержать имя полезного человека, описание пользы
+ (название профессии или суть услуги) и его контакты: номер телефона, телеграмм, ссылки на социальные сети.
+ Пользователь может совершать с записями таблицы следующие операции: создавать, редактировать, удалять.
