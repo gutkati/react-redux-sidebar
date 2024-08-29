@@ -1,8 +1,12 @@
 import React from 'react';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import Header from "./components/header/header";
 
 const App = () => {
-    return <h2>This is my Redux app!</h2>
+    return (
+        <Header/>
+    )
+
 };
 
 export default App;
