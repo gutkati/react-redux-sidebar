@@ -5,7 +5,7 @@
     border-radius: 5px;
     background: #f3f3f3;
     max-width: 300px;
-    margin: 20px 0 0 20px;
+    margin-bottom: 30px;
 }
 
 .box__input {
@@ -21,7 +21,11 @@
     background: inherit;
     border: none;
     height: 25px;
-     border-radius: 3px;
+    border-radius: 3px;
+}
+
+input:focus {
+    outline: 1px solid #afafaf;
 }
 
 .btn {
@@ -35,6 +39,14 @@
     background-position: center;
     background-color: #eaeaea;
     cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #dedede;
+    background-image: url("../../images/plus.svg");
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: center;
 }
 
 

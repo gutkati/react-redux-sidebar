@@ -1,10 +1,11 @@
 import React from 'react';
+import styles from './Category.module.css'
 
-const Category = () => {
+const Category = ({text}) => {
     return (
-        <div>
-
-        </div>
+        <li className={styles.item}>
+            {text}
+        </li>
     );
 };
 
