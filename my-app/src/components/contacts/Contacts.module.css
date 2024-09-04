@@ -1,0 +1,55 @@
+.contacts {
+    margin: 0 auto;
+}
+
+.table {
+    border: 1px solid #2d3250;
+    border-spacing: 5px;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.header {
+    width: 200px;
+    border: 1px solid #2d3250;
+    border-radius: 5px;
+}
+
+.cell td {
+    width: 200px;
+    border: 1px solid #2d3250;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+.cell td:nth-last-child(2) {
+    width: 30px;
+    background-color: #dedede;
+    background-image: url("../../images/karandash.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15px;
+    cursor: pointer;
+    opacity: 1;
+    border: none;
+}
+
+.cell td:nth-last-child(1) {
+    width: 30px;
+    background-color: #dedede;
+    background-image: url("../../images/delete.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15px;
+    border: none;
+
+}
+
+.cell td:nth-last-child(2) .cell td:nth-last-child(1):hover {
+    opacity: 0.6;
+    transition: opacity .2s ease .1s;
+    cursor: pointer;
+}
+
+
+
