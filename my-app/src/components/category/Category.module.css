@@ -1,5 +1,7 @@
 .item {
-    list-style-type: none;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
     border-radius: 5px;
     width: 300px;
     background: #f3f3f3;
@@ -15,9 +17,7 @@
 }
 
 .active {
-    color: green;
+    background-color: #afafaf;
 }
 
-.loading{
-    color: red;
-}
+

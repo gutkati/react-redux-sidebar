@@ -12,3 +12,8 @@ const Root = () => {
 };
 
 export default Root;
+
+// const titleCategory = useSelector(state => selectCategoryById(state, categoryId))
+
+// export const selectCategoryById = (state, categoryId) =>
+//     state.category.find(category => category.id === categoryId)

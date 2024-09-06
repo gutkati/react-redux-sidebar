@@ -52,6 +52,9 @@ export default categorySlice.reducer
 
 export const selectAllCategories = (state) => state.category
 
+export const selectCategoryById = (state, contactId) =>
+     state.category.find(category => category.id === contactId)
+
 
 export const selectContactsId = (state, contactId) =>
     state.category.find(contact => {
