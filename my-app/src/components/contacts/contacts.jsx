@@ -1,7 +1,33 @@
 import React from 'react';
 import styles from './Contacts.module.css'
+import {useSelector} from "react-redux";
+import {selectAllCategories, selectContactsId} from "../../parts/categorySlice";
+import {useParams} from "react-router-dom";
 
 const Contacts = () => {
+    let params = useParams()
+    const {contactId} = params
+
+    console.log('contactId', contactId)
+
+    const dataContacts = useSelector((state) => selectContactsId(state, contactId))
+
+    console.log('dataContacts', dataContacts)
+
+
+    console.log('dataContacts2', dataContacts.contacts)
+
+        const cellTable = dataContacts.contacts.map(contact => (
+            <tr key={contact.id} className={styles.cell}>
+                <td>{contact.name}</td>
+                <td>{contact.description}</td>
+                <td>{contact.phone}</td>
+                <td className={styles.btn__style}/>
+                <td className={styles.btn__style}/>
+            </tr>
+        ))
+
+
     return (
         <div className={styles.contacts}>
             <h2 className={styles.title}>Семья</h2>
@@ -16,20 +42,7 @@ const Contacts = () => {
                 </thead>
 
                 <tbody>
-                <tr className={styles.cell}>
-                    <td>Катя</td>
-                    <td>Сестра</td>
-                    <td>8-000-200-11-00</td>
-                    <td className={styles.btn__style}/>
-                    <td className={styles.btn__style}/>
-                </tr>
-                <tr className={styles.cell}>
-                    <td>Женя</td>
-                    <td>Брат</td>
-                    <td>8-000-200-11-00</td>
-                    <td className={styles.btn__style}/>
-                    <td className={styles.btn__style}/>
-                </tr>
+                {cellTable}
                 </tbody>
             </table>
         </div>

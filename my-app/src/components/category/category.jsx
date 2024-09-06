@@ -1,11 +1,19 @@
 import React from 'react';
 import styles from './Category.module.css'
+import {NavLink} from "react-router-dom";
 
-const Category = ({text}) => {
+const activeClass = ({isActive, isPending}) => isActive ? styles.active : isPending ? styles.loading : ''
+
+
+const Category = ({text, contact}) => {
+console.log('contact.id', contact.id)
     return (
-        <li className={styles.item}>
+        <NavLink
+            className={`${styles.item} ${activeClass}`}
+            to={`contacts/${contact.id}`}
+        >
             {text}
-        </li>
+        </NavLink>
     );
 };
 

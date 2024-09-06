@@ -13,3 +13,11 @@
 .item:hover {
     background: #dedede;
 }
+
+.active {
+    color: green;
+}
+
+.loading{
+    color: red;
+}
