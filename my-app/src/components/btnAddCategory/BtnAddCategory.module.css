@@ -5,7 +5,7 @@
     border-radius: 5px;
     background: #f3f3f3;
     max-width: 300px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .box__input {
@@ -47,6 +47,11 @@ input:focus {
     background-repeat: no-repeat;
     background-size: 25px;
     background-position: center;
+}
+
+.span {
+    color: #ea3333;
+    font-size: 14px;
 }
 
 
