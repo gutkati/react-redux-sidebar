@@ -42,22 +42,43 @@ let arrInitial = [
     }
 ]
 
+const initialState = {
+    category: arrInitial
+}
+
 const categorySlice = createSlice({
     name: 'category',
-    initialState: arrInitial,
-    reducers: {}
+    initialState,
+    reducers: {
+        categoryAdded: {
+            reducer(state, action) {
+                state.category.push(action.payload)
+            },
+            prepare(category, contacts) { // возвращать объект payload со сгенерированным id и другими нашими данными:
+                return {
+                    payload: {
+                        id: nanoid(),
+                        category,
+                        contacts
+                    },
+                }
+            }
+        }
+    }
 })
+
+export const {categoryAdded} = categorySlice.actions
 
 export default categorySlice.reducer
 
-export const selectAllCategories = (state) => state.category
+export const selectAllCategories = (state) => state.category.category
 
 export const selectCategoryById = (state, contactId) =>
-     state.category.find(category => category.id === contactId)
+    state.category.category.find(category => category.id === contactId)
 
 
 export const selectContactsId = (state, contactId) =>
-    state.category.find(contact => {
+    state.category.category.find(contact => {
         if (contact.id === contactId) {
             return contact.contacts
         }

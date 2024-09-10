@@ -15,7 +15,6 @@ const ListCategory = () => {
 
         <ul className={styles.list}>
             {arrCategories.map(obj => (
-
                 <Category
                     key={obj.id}
                     text={obj.category}
