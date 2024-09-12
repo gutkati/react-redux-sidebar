@@ -13,11 +13,12 @@
 }
 
 .item:hover {
-    background: #dedede;
+    /*background: #dedede;*/
+    background: #b7cfd9;
 }
 
 .active {
-    background-color: #afafaf;
+    background-color: #b7cfd9;
 }
 
 

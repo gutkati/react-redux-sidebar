@@ -42,7 +42,7 @@ input:focus {
 }
 
 .btn:hover {
-    background-color: #dedede;
+    background-color: #b7cfd9;
     background-image: url("../../images/plus.svg");
     background-repeat: no-repeat;
     background-size: 25px;
