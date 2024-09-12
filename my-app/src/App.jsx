@@ -1,8 +1,24 @@
 import React from 'react';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import Root from "./app/root/root";
+import Contacts from "./components/contacts/contacts";
+
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <Root/>,
+        children: [
+            {
+                path: 'contacts/:contactId',
+                element: <Contacts/>,
+            }
+        ]
+    }
+])
 
 const App = () => {
-    return <h2>This is my Redux app!</h2>
+    return <RouterProvider router={router}/>
+
 };
 
 export default App;

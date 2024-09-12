@@ -1,0 +1,18 @@
+.header {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background: #b7cfd9;
+    box-shadow: 0 0 8px #afafaf;
+}
+
+.header__container {
+    margin: 0 auto;
+}
+
+.header__title {
+    text-align: center;
+    margin: 0;
+    font-size: 24px;
+    line-height: 30px;color: #2d3250;
+}
