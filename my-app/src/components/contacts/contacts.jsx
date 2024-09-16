@@ -10,17 +10,20 @@ const Contacts = () => {
     let params = useParams()
     const {contactId} = params
 
+    console.log('contactId', contactId)
     const [isOpenPopupAddContact, setIsOpenPopupAddContact] = useState(false)
 
-    const titleCategory = useSelector(state => selectCategoryById(state, contactId))
+    const categoryNow = useSelector(state => selectCategoryById(state, contactId))
 
     // получить массив контактов из категории
     const dataContacts = useSelector((state) => selectContactsId(state, contactId))
 
-    console.log('dataContacts', dataContacts)
-    console.log('titleCategory', titleCategory)
+    // console.log('dataContacts', dataContacts)
+     console.log('titleCategory', categoryNow)
 
-    const cellTable = dataContacts.contacts.map(contact => (
+    //let arrContacts = categoryNow.contacts
+
+    const cellTable = categoryNow.contacts.map(contact => (
         <tr key={contact.id} className={styles.cell}>
             <td>{contact.name}</td>
             <td>{contact.description}</td>
@@ -28,6 +31,7 @@ const Contacts = () => {
             <td className={styles.btn__style}/>
             <td className={styles.btn__style}/>
         </tr>
+
     ))
 
     function handleOpenPopupContacts() {
@@ -40,7 +44,7 @@ const Contacts = () => {
 
     return (
         <div className={styles.contacts}>
-            <h2 className={styles.title}>{titleCategory.category}</h2>
+            <h2 className={styles.title}>{categoryNow.category}</h2>
 
             <div className={styles.container__btn}>
                 <button
@@ -68,8 +72,9 @@ const Contacts = () => {
 
             <PopupContacts
                 isOpen={isOpenPopupAddContact}
-                dataContacts={dataContacts}
+                dataContacts={categoryNow}
                 onClose={handleClosePopup}
+                id={contactId}
             />
         </div>
 

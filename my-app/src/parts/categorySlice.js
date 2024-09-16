@@ -63,11 +63,34 @@ const categorySlice = createSlice({
                     },
                 }
             }
+        },
+        contactsAdded: {
+            reducer(state, action) {
+                const {contactId} = action.payload
+                console.log('---', action.payload)
+                state.category.map(category => {
+
+                    if (category.id === contactId) {
+                        category.contacts.push(action.payload)
+                    }
+                })
+            },
+            prepare(contactId, name, description, phone) { // возвращать объект payload со сгенерированным id и другими нашими данными:
+                return {
+                    payload: {
+                        contactId,
+                        id: nanoid(6),
+                        name,
+                        description,
+                        phone
+                    },
+                }
+            }
         }
     }
 })
 
-export const {categoryAdded} = categorySlice.actions
+export const {categoryAdded, contactsAdded} = categorySlice.actions
 
 export default categorySlice.reducer
 
@@ -83,4 +106,15 @@ export const selectContactsId = (state, contactId) =>
             return contact.contacts
         }
     })
+
+const createNewList = (id, input) => {
+    const newCards = this.state.cards.map(card => {
+        if (card.id === id) card.list = [...card.list, input];
+        return card;
+    });
+
+    this.setState({
+        cards: newCards
+    });
+};
 

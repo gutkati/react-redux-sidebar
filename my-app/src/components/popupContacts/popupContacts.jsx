@@ -2,60 +2,75 @@ import React, {useState} from 'react';
 import PopupWithForm from "../popupWithForm/popupWithForm";
 import Input from "../input/input";
 import styles from './PopupContacts.module.css'
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {contactsAdded, selectCategoryById} from "../../parts/categorySlice";
+import {useParams} from "react-router-dom";
 
-const PopupContacts = ({isOpen, dataContacts, onClose,}) => {
+const PopupContacts = ({isOpen, dataContacts, onClose, id}) => {
 
-    const [valueName, setValueName] = useState('')
-    const [valueDescription, setValueDescription] = useState('')
-    const [valuePhone, setValuePhone] = useState('')
+    let params = useParams()
+    const {contactId} = params
 
-    const onNameChange = (e) => setValueName(e.target.value)
-    const onDescriptionChange = (e) => setValueDescription(e.target.value)
-    const onPhoneChange = (e) => setValuePhone(e.target.value)
+    console.log('categoryId', contactId)
+
+     const categoryNow = useSelector(state => selectCategoryById(state, contactId))
+
+    const [name, setName] = useState('')
+    const [description, setDescription] = useState('')
+    const [phone, setPhone] = useState('')
+
+    const onNameChange = (e) => setName(e.target.value)
+    const onDescriptionChange = (e) => setDescription(e.target.value)
+    const onPhoneChange = (e) => setPhone(e.target.value)
 
     console.log('dataContacts-contact', dataContacts)
 
     const dispatch = useDispatch()
 
-    dataContacts.map(contact => {
+    function addNewContact(e) {
+        e.preventDefault()
+        if (name && description && phone) {
+            dispatch(contactsAdded(contactId, name, description, phone))
+            onClose()
+        }
 
-    })
+
+    }
 
     return (
         <PopupWithForm
             isOpen={isOpen}
             onClose={onClose}
-            // onSave={onSaveEditCard}
+            onSave={addNewContact}
             title={dataContacts.category}
             titleBtn='Сохранить'
         >
             <div className={styles.inputs__form}>
                 <div className={styles.container__input}>
-                    <label htmlFor="photoUser">Имя</label>
+                    <label htmlFor="nameContact">Имя</label>
                     <Input
-                        name='photoUser'
-                        id='photoUser'
-                        value={valueName}
+                        name='nameContact'
+                        id='nameContact'
+                        value={name}
                         onChange={onNameChange}
                     />
                 </div>
                 <div className={styles.container__input}>
-                    <label htmlFor="yearPhoto">Описание</label>
+                    <label htmlFor="descContact">Описание</label>
                     <Input
-                        name='yearPhoto'
-                        id='yearPhoto'
-                        value={valueDescription}
+                        name='descContact'
+                        id='descContact'
+                        value={description}
                         onChange={onDescriptionChange}
                     />
                 </div>
 
                 <div className={styles.container__input}>
-                    <label htmlFor="location">Телефон</label>
+                    <label htmlFor="phoneContact">Телефон</label>
                     <Input
-                        name='location'
-                        id='location'
-                        value={valuePhone}
+                        name='phoneContact'
+                        id='phoneContact'
+                        value={phone}
                         onChange={onPhoneChange}
                     />
                 </div>
