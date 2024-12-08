@@ -1,0 +1,24 @@
+.item {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 5px;
+    width: 300px;
+    background: #f3f3f3;
+    padding: 7px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+}
+
+.item:hover {
+    /*background: #dedede;*/
+    background: #b7cfd9;
+}
+
+.active {
+    background-color: #b7cfd9;
+}
+
+
